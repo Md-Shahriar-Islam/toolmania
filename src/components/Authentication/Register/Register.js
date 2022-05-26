@@ -8,6 +8,7 @@ const Register = () => {
         console.log(data);
 
     }
+
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className="flex items-center justify-center mt-10 flex-col">
