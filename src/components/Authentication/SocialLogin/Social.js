@@ -1,9 +1,10 @@
 import React from 'react';
 import { GoogleLoginButton, GithubLoginButton } from "react-social-login-buttons";
 import { useSignInWithGoogle, useSignInWithGithub } from 'react-firebase-hooks/auth'
-import { SpinnerCircular } from 'spinners-react';
+
 import auth from '../../../firebase.init';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../Loading';
 const Social = () => {
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const [signInWithGithub, gituser, gitloading, giterror] = useSignInWithGithub(auth);
@@ -13,9 +14,7 @@ const Social = () => {
         error = gerror?.message || giterror?.message
     }
     if (gloading || gitloading) {
-        return <div className="flex justify-center">
-            <SpinnerCircular />
-        </div>
+        return <Loading></Loading>
     }
     if (guser || gituser) {
         navigate("/home")
@@ -26,7 +25,10 @@ const Social = () => {
             <GoogleLoginButton onClick={() => signInWithGoogle()} />
             <GithubLoginButton onClick={() => signInWithGithub()} />
             {
-                gerror ? error : "successfully logged in"
+                gerror && error
+            }
+            {
+                giterror && error
             }
 
         </div>

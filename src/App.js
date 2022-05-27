@@ -9,6 +9,8 @@ import Header from './components/Home/Header';
 import MyOrders from './components/Dashboard/MyOrders';
 import Review from './components/Dashboard/Review'
 import Profile from './components/Dashboard/Profile';
+import RequireAuth from './components/secured/RequireAuth';
+import Notfound from './components/Error/Notfound';
 
 function App() {
   return (
@@ -19,7 +21,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<Dashboard />} >
+
+        <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
           <Route
             path="myorder"
             element={<MyOrders />}
@@ -33,6 +36,8 @@ function App() {
             element={<Profile />}
           />
         </Route>
+        <Route path="*" element={<Notfound></Notfound>} />
+
       </Routes>
 
 
