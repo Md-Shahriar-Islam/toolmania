@@ -3,12 +3,14 @@ import { GoogleLoginButton, GithubLoginButton } from "react-social-login-buttons
 import { useSignInWithGoogle, useSignInWithGithub } from 'react-firebase-hooks/auth'
 
 import auth from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading';
 const Social = () => {
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
     const [signInWithGithub, gituser, gitloading, giterror] = useSignInWithGithub(auth);
     const navigate = useNavigate()
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     let error, name;
     if (gerror || giterror) {
         error = gerror?.message || giterror?.message
@@ -17,7 +19,7 @@ const Social = () => {
         return <Loading></Loading>
     }
     if (guser || gituser) {
-        navigate("/home")
+        navigate(from, { replace: true });
     }
 
     return (

@@ -21,6 +21,8 @@ const Header = () => {
                     </label>
                     <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to="/home">HOME</Link></li>
+                        <li><Link to="/blogs">BLOG</Link></li>
+                        <li><Link to="/portfolio">Portfolio</Link></li>
 
                         {
                             user ?
@@ -40,10 +42,13 @@ const Header = () => {
 
                     </ul>
                 </div>
-                <Link to="/" class="btn btn-ghost normal-case text-xl">daisyUI</Link>
+                <Link to="/" class="btn btn-ghost normal-case text-xl">TOOLMANIA</Link>
             </div>
             <div class="hidden lg:flex justify-end">
                 <ul class="menu menu-horizontal  p-0">
+                    <li className="mx-2"><Link to="/home">HOME</Link></li>
+                    <li className="mx-2"><Link to="/blogs">BLOG</Link></li>
+                    <li><Link to="/portfolio">Portfolio</Link></li>
 
                     {
                         user ?

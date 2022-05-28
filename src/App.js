@@ -17,6 +17,8 @@ import Shopping from './components/Shopping/Shopping';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/Business/Footer';
+import Portfolio from './components/Extra/Portfolio';
+import Blogs from './components/Extra/Blogs';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/blogs" element={<Blogs />} />
 
         <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
           <Route
@@ -48,8 +52,14 @@ function App() {
         </Route>
         <Route path="*" element={<Notfound></Notfound>} />
 
-        <Route path="/shop" element={<Shopping></Shopping>} />
-        <Route path="/shop/:id" element={<Shopping></Shopping>} />
+        <Route path="/shop" element={
+          <RequireAuth>
+            <Shopping></Shopping>
+          </RequireAuth>} />
+        <Route path="/shop/:id" element={
+          <RequireAuth>
+            <Shopping></Shopping>
+          </RequireAuth>} />
 
       </Routes>
       <Footer></Footer>
