@@ -19,6 +19,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/Business/Footer';
 import Portfolio from './components/Extra/Portfolio';
 import Blogs from './components/Extra/Blogs';
+import MakeAdmin from './components/Admin/MakeAdmin';
+import ManageOrders from './components/Admin/ManageOrders';
+import RequireAdmin from './components/secured/RequireAdmin';
 
 function App() {
   return (
@@ -47,7 +50,18 @@ function App() {
           />
           <Route
             path="add"
-            element={<AddItem />}
+            element={
+
+              <AddItem />
+            }
+          />
+          <Route
+            path="user"
+            element={<MakeAdmin />}
+          />
+          <Route
+            path="order"
+            element={<ManageOrders />}
           />
         </Route>
         <Route path="*" element={<Notfound></Notfound>} />
