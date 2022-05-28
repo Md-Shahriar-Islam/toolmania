@@ -11,6 +11,12 @@ import Review from './components/Dashboard/Review'
 import Profile from './components/Dashboard/Profile';
 import RequireAuth from './components/secured/RequireAuth';
 import Notfound from './components/Error/Notfound';
+import AddItem from './components/Dashboard/AddItem';
+import ToolBox from './components/Home/ToolBox';
+import Shopping from './components/Shopping/Shopping';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Footer from './components/Business/Footer';
 
 function App() {
   return (
@@ -35,13 +41,19 @@ function App() {
             path="profile"
             element={<Profile />}
           />
+          <Route
+            path="add"
+            element={<AddItem />}
+          />
         </Route>
         <Route path="*" element={<Notfound></Notfound>} />
 
+        <Route path="/shop" element={<Shopping></Shopping>} />
+        <Route path="/shop/:id" element={<Shopping></Shopping>} />
+
       </Routes>
-
-
-
+      <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

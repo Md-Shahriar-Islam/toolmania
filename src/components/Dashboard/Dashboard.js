@@ -6,7 +6,7 @@ const Dashboard = () => {
         <div>
             <div class="drawer drawer-mobile">
                 <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content flex flex-col items-center justify-center">
+                <div class="drawer-content flex flex-col ">
                     <Outlet></Outlet>
                     <label for="my-drawer-2" class="btn btn-wide drawer-button lg:hidden">Open Side Menu</label>
 
@@ -17,6 +17,7 @@ const Dashboard = () => {
                         <li><Link to="myorder">My Orders</Link></li>
                         <li><Link to="review">Add a review</Link></li>
                         <li><Link to="profile">my profile</Link></li>
+                        <li><Link to="add">Add a product</Link></li>
 
                     </ul>
 

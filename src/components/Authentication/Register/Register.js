@@ -30,7 +30,18 @@ const Register = () => {
 
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name })
-
+        const url = 'http://localhost:5000/profile'
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
     }
 
     return (
