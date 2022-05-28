@@ -5,7 +5,7 @@ import ReviewCard from './ReviewCard';
 
 const Reviews = () => {
     const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch('http://localhost:5000/reviews').then(res =>
+        fetch('https://limitless-island-64080.herokuapp.com/reviews').then(res =>
             res.json()
         )
     )

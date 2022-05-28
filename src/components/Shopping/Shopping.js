@@ -15,7 +15,7 @@ const Shopping = () => {
     const [tool, setTool] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tools/${id}`)
+        fetch(`https://limitless-island-64080.herokuapp.com/tools/${id}`)
             .then(res => res.json())
             .then(data => setTool(data))
     }, [])
@@ -38,7 +38,7 @@ const Shopping = () => {
         else {
 
 
-            fetch('http://localhost:5000/orders', {
+            fetch('https://limitless-island-64080.herokuapp.com/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

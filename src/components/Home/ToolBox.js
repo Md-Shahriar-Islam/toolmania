@@ -6,7 +6,7 @@ import Tool from './Tool';
 const ToolBox = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/tools")
+        fetch("https://limitless-island-64080.herokuapp.com/tools")
             .then(res => res.json())
             .then(data => setData(data))
 

@@ -30,7 +30,7 @@ const Register = () => {
 
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name })
-        const url = 'http://localhost:5000/profile'
+        const url = 'https://limitless-island-64080.herokuapp.com/profile'
         fetch(url, {
             method: 'POST',
             headers: {

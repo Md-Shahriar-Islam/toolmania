@@ -10,14 +10,14 @@ const MyOrders = () => {
 
     const [orders, setOrders] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user?.email}`)
+        fetch(`https://limitless-island-64080.herokuapp.com/orders?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user?.email])
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure??want to delete');
         if (proceed) {
-            const url = `http://localhost:5000/orders/${id}`
+            const url = `https://limitless-island-64080.herokuapp.com/orders/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

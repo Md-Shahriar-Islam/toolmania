@@ -5,12 +5,12 @@ const MakeAdmin = () => {
     const [users, setUsers] = useState([])
     const [email, setEmail] = useState({})
     useEffect(() => {
-        fetch('http://localhost:5000/profile')
+        fetch('https://limitless-island-64080.herokuapp.com/profile')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, [])
     const handlebtn = email => {
-        const url = `http://localhost:5000/profile/user?email=${email}`
+        const url = `https://limitless-island-64080.herokuapp.com/profile/user?email=${email}`
         fetch(url, {
             method: 'PUT',
             headers: {

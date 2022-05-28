@@ -9,7 +9,7 @@ const Profile = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data)
-        const url = `http://localhost:5000/profile?email=${user?.email}`
+        const url = `https://limitless-island-64080.herokuapp.com/profile?email=${user?.email}`
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -26,7 +26,7 @@ const Profile = () => {
     }
     const [profile, setProfile] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/profile/user?email=${user?.email}`)
+        fetch(`https://limitless-island-64080.herokuapp.com/profile/user?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setProfile(data))
     }, profile)

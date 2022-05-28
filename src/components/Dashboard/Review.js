@@ -12,7 +12,7 @@ const Review = () => {
     const onSubmit = data => {
         data = { ...data, name: user.displayName, email: user.email }
         console.log(data)
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://limitless-island-64080.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
